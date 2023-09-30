@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-// accpp¼ÆËã
+// accppè®¡ç®—
 double AccuracyPP_fuction(int pp320,int pp300,int pp200,int pp100,int pp50,int ppmiss){
     double a1=((320*pp320)+(300*pp300)+(200*pp200)+(100*pp100)+(50*pp50));
     double a2=(320*(pp320+pp300+pp200+pp100+pp50+ppmiss));
@@ -8,29 +8,29 @@ double AccuracyPP_fuction(int pp320,int pp300,int pp200,int pp100,int pp50,int p
     return accPP;
 }
 
-// ¿É»ñµÃµÄppÕ¼±È
+// å¯è·å¾—çš„ppå æ¯”
 double PPWeight_fuction(int pp320,int pp300,int pp200,int pp100,int pp50,int ppmiss){
     return (AccuracyPP_fuction(pp320,pp300,pp200,pp100,pp50,ppmiss)-80.0)/20.0;
 }
 int main(){
     int pp320,pp300,pp200,pp100,pp50,ppmiss;
-    std::cout<<"ÇëÊäÈëpp320:";
+    std::cout<<"è¯·è¾“å…¥pp320:";
     std::cin >> pp320;
-    std::cout<<"ÇëÊäÈëpp300:";
+    std::cout<<"è¯·è¾“å…¥pp300:";
     std::cin >> pp300;
-    std::cout<<"ÇëÊäÈëpp200:";
+    std::cout<<"è¯·è¾“å…¥pp200:";
     std::cin >> pp200;
-    std::cout<<"ÇëÊäÈëpp100:";
+    std::cout<<"è¯·è¾“å…¥pp100:";
     std::cin >> pp100;
-    std::cout<<"ÇëÊäÈëpp50:";
+    std::cout<<"è¯·è¾“å…¥pp50:";
     std::cin >> pp50;
-    std::cout<<"ÇëÊäÈëppmiss:";
+    std::cout<<"è¯·è¾“å…¥ppmiss:";
     std::cin >> ppmiss;
     std::ofstream outFile;
     outFile.open("OSU.txt");
-    outFile<<"ÄãµÄACCPPÎª: "<<AccuracyPP_fuction(pp320,pp300,pp200,pp100,pp50,ppmiss)<<"%"<<std::endl;
-    outFile<<"¿ÉÒÔ»ñµÃÈ«²¿ppµÄ"<<PPWeight_fuction(pp320,pp300,pp200,pp100,pp50,ppmiss)*100<<"%Õ¼±È"<<std::endl;
-    std::cout<<"Éú³ÉÎÄ¼ş³É¹¦";
+    outFile<<"ä½ çš„ACCPPä¸º: "<<AccuracyPP_fuction(pp320,pp300,pp200,pp100,pp50,ppmiss)<<"%"<<std::endl;
+    outFile<<"å¯ä»¥è·å¾—å…¨éƒ¨ppçš„"<<PPWeight_fuction(pp320,pp300,pp200,pp100,pp50,ppmiss)*100<<"%å æ¯”"<<std::endl;
+    std::cout<<"ç”Ÿæˆæ–‡ä»¶æˆåŠŸ";
     system("pause");
     return 0;
 }
